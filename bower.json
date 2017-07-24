@@ -1,5 +1,5 @@
 {
-  "name": "punch-card",
+  "name": "jquery-punchcard",
   "version": "0.0.1.0",
   "authors": [
     "Menelaos Vergis <menelaosvergis@gmail.com>"
@@ -7,7 +7,7 @@
   "description": "Github punchcard inspired jQuery plugin",
   "license": "MIT",
   "devDependencies": {
-    "jquery": "3.2.1" 
+    "jquery": "^3.2.1" 
   },
   "main": [
     "src/punchcard.css",

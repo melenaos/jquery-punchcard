@@ -7,8 +7,9 @@
   "description": "Github punchcard inspired jQuery plugin",
   "license": "MIT",
   "devDependencies": {
-    "jquery": "^3.2.1" 
+    "jquery": "^3.2.1"
   },
+  "ignore": [],
   "main": [
     "src/punchcard.css",
     "src/punchcard.js"

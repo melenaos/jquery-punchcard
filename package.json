@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "private": true,
+  "devDependencies": {
+    "gulp": "3.9.1",
+    "gulp-concat": "2.6.1",
+    "gulp-concat-css": "2.3.0",
+    "gulp-cssmin": "0.1.7",
+    "gulp-uglify": "2.0.1",
+    "gulp-rename": "1.2.2",
+    "gulp-strip-debug": "1.1.0",
+    "rimraf": "2.6.1"
+  }
+}

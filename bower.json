@@ -10,7 +10,7 @@
   },
   "ignore": [],
   "main": [
-    "src/punchcard.css",
-    "src/punchcard.js"
+    "dist/punchcard.min.css",
+    "dist/punchcard.min.js"
   ]
 }

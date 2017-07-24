@@ -1,0 +1,187 @@
+.punchcard {
+    width: 65em;
+    font-size: 14px;
+    padding-top: 0.7em;
+    overflow: hidden;
+}
+
+    .punchcard * {
+        box-sizing: border-box;
+    }
+
+    .punchcard .punch-card-day {
+        width: 100%;
+        height: 3.3em;
+        position: relative;
+        margin: 1em 0 0 0;
+        border-bottom: 1px solid #eeeeee;
+    }
+
+        .punchcard .punch-card-day .punch-card-day-name {
+            float: left;
+            width: 5.7em;
+            height: 3.8em;
+            font-size: 0.86em;
+            color: #333333;
+        }
+
+            .punchcard .punch-card-day .punch-card-day-name .punch-card-day-name-label {
+                margin-top: 1em;
+            }
+
+        .punchcard .punch-card-day .punch-card-hour {
+            position: relative;
+            float: left;
+            height: 3.3em;
+            width: 2.5em;
+            cursor: pointer;
+        }
+
+            .punchcard .punch-card-day .punch-card-hour:hover .punch-card-hour-tooltip {
+                display: block;
+            }
+
+            .punchcard .punch-card-day .punch-card-hour:hover .punch-card-hour-data {
+                background-color: #4183c4;
+            }
+
+            .punchcard .punch-card-day .punch-card-hour .punch-card-hour-tooltip {
+                position: absolute;
+                left: 50%;
+                padding: 0.4em 0.9em;
+                margin-top: -2.1em;
+                -webkit-transform: translateX(-50%);
+                -moz-transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -o-transform: translateX(-50%);
+                transform: translateX(-50%);
+                z-index: 3;
+                background: #333333;
+                color: #eee;
+                font-size: 0.8em;
+                white-space: nowrap;
+                display: none;
+            }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-tooltip .arrow {
+                    position: absolute;
+                    margin: 0 auto;
+                    left: 0;
+                    right: 0;
+                    width: 0;
+                    height: 0;
+                    border-left: 1em solid transparent;
+                    border-right: 1em solid transparent;
+                    border-top: 1em solid #333333;
+                }
+
+            .punchcard .punch-card-day .punch-card-hour .punch-card-hour-tick {
+                width: 1px;
+                background: #eeeeee;
+                position: absolute;
+                bottom: 0;
+                margin-left: 1.25em;
+                z-index: 1;
+            }
+
+            .punchcard .punch-card-day .punch-card-hour:nth-child(odd) .punch-card-hour-tick {
+                height: 0.575em;
+            }
+
+            .punchcard .punch-card-day .punch-card-hour:nth-child(even) .punch-card-hour-tick {
+                height: 0.325em;
+            }
+
+            .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data {
+                background: #666666;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0.6em;
+                left: 0;
+                margin: auto;
+                z-index: 2;
+            }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-0 {
+                    width: 0em;
+                    height: 0em;
+                    border-radius: 0em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-1 {
+                    width: 0.21em;
+                    height: 0.21em;
+                    border-radius: 0.21em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-2 {
+                    width: 0.42em;
+                    height: 0.42em;
+                    border-radius: 0.42em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-3 {
+                    width: 0.63em;
+                    height: 0.63em;
+                    border-radius: 0.63em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-4 {
+                    width: 0.84em;
+                    height: 0.84em;
+                    border-radius: 0.84em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-5 {
+                    width: 1.05em;
+                    height: 1.05em;
+                    border-radius: 1.05em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-6 {
+                    width: 1.26em;
+                    height: 1.26em;
+                    border-radius: 1.26em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-7 {
+                    width: 1.47em;
+                    height: 1.47em;
+                    border-radius: 1.47em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-8 {
+                    width: 1.68em;
+                    height: 1.68em;
+                    border-radius: 1.68em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-9 {
+                    width: 1.89em;
+                    height: 1.89em;
+                    border-radius: 1.89em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-10 {
+                    width: 2.1em;
+                    height: 2.1em;
+                    border-radius: 2.1em;
+                }
+
+                .punchcard .punch-card-day .punch-card-hour .punch-card-hour-data.size-null {
+                    background: transparent;
+                }
+
+    .punchcard .punch-card-hour-name {
+        width: 100%;
+        clear: both;
+        margin: 20px 0 0 5.7em;
+    }
+
+        .punchcard .punch-card-hour-name .punch-card-hour-name-label {
+            font-size: 0.86em;
+            color: #333333;
+            float: left;
+            width: 2.9em;
+        }

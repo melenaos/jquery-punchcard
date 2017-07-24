@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="src/punchcard.js"></script>
+    <link href="src/punchcard.css" rel="stylesheet" />
+
+    <style>
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function () {
+            $('#punchcardExample').punchcard({
+                data: [
+                    [12, 17, 10, 20, 0, 12, 12, 12, 12, 20, 12, 10],
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                    [10, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 24],
+                    [],
+                    [3, 10],
+                    [],
+                    [0, 0, 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 10, 12, 14, 20, 10, 3]
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="punchcardExample"></div>
+
+</body>
+</html>

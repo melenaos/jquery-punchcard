@@ -48,7 +48,7 @@
                 var maxData = 0;
                 for (var iHour in this.settings.hours) {
                     var n = this.settings.data[iDay][iHour];
-                    if (!n || n == 0) continue;
+                    if (n == undefined || n == 0) continue;
 
                     if (maxData < n) maxData = n;
                 }
@@ -56,7 +56,7 @@
                 var dayList = [];
                 for (var iHour in this.settings.hours) {
                     var n = this.settings.data[iDay][iHour];
-                    if (!n) break;
+                    if (n == undefined) break;
 
                     var pers = n/ maxData;
 

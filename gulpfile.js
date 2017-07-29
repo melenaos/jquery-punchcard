@@ -5,10 +5,12 @@ var gulp = require("gulp"),
     cssmin = require("gulp-cssmin"),
     uglify = require("gulp-uglify"),
     stripDebug = require("gulp-strip-debug"),
-    rename = require("gulp-rename");
+    rename = require("gulp-rename"),
+    multiDest = require("gulp-multi-dest");
 
 var path = {
     dist: "./dist/",
+    docs: "./docs/",
     src: "./src/*.*",
     css: "./src/*.css",
     js: "./src/*.js",
@@ -23,20 +25,22 @@ gulp.task("min:css", function () {
     return gulp.src(path.css)
         .pipe(concatcss("punchcard.min.css"))
         .pipe(cssmin())
-        .pipe(gulp.dest(path.dist));
+        .pipe(multiDest([path.dist, path.docs]));
 });
 gulp.task("min:js", function () {
     return gulp.src(path.js)
         .pipe(concat("punchcard.min.js"))
         .pipe(stripDebug())
         .pipe(uglify())
-        .pipe(gulp.dest(path.dist));
+        .pipe(multiDest([path.dist, path.docs]));
 });
 gulp.task("copy", function () {
     return gulp.src(path.src)
         .pipe(gulp.dest(path.dist));
 
 });
+
+
 
 /* build */
 gulp.task("build", ["clean", "min:css", "min:js", "copy"]);

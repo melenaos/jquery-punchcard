@@ -9,6 +9,7 @@
     "gulp-uglify": "2.0.1",
     "gulp-rename": "1.2.2",
     "gulp-strip-debug": "1.1.0",
+    "gulp-multi-dest": "0.0.4",
     "rimraf": "2.6.1"
   }
 }

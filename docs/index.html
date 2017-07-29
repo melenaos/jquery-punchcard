@@ -5,105 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta name="viewport" content="width=640">
 
-    <link rel="stylesheet" href="/jquery-punchcard/assets/css/style.css?v=1e689469a58788eaa955a638ab588e8d86d3d18f" media="screen">
-    <link rel="stylesheet" href="/jquery-punchcard/assets/css/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="/jquery-punchcard/assets/css/non-screen.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="/site.css" />
+    <link rel="stylesheet" href="./site.css" />
+    <link rel="stylesheet" href="../dist/punchcard.css" />
 
-    <script type="text/javascript" src="/jquery-punchcard/assets/js/modernizr.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/jquery-punchcard/assets/js/headsmart.min.js"></script>
-    <script type="text/javascript">
-      $(document).ready(function () {
-        $('#main_content').headsmart()
-      })
-    </script>
-    <title>jquery-punchcard by melenaos</title>
+    <title>jQuery-Punchcard by Melenaos</title>
 </head>
 
 <body>
-    <a id="forkme_banner" href="https://github.com/melenaos/jquery-punchcard">View on GitHub</a>
-    <div class="shell">
+    <header>
+        <h1>jQuery Punchcard</h1>
 
-        <header>
-            <span class="ribbon-outer">
-                <span class="ribbon-inner">
-                    <h1>jquery-punchcard</h1>
-                    <h2>Github punchcard inspired jQuery plugin</h2>
-                </span>
-                <span class="left-tail"></span>
-                <span class="right-tail"></span>
-            </span>
-        </header>
-
-
-        <div id="no-downloads">
-            <span class="inner">
-            </span>
+        <div>
+            <p>GitHub inspired Punchcard,<br /> as a jQuery plugin.</p>
+            <nav>
+                <ul>
+                    <!--<li><a href="#features">Features</a></li>-->
+                    <li><a href="#intro">Intro</a></li>
+                    <li><a href="#examples">Examples</a></li>
+                    <li><a href="#usage">Usage</a></li>
+                    <li><a href="test.html">Testsuite</a></li>
+                    <li><a class="download" href="https://github.com/melenaos/jquery-punchcard/releases/latest" download>Download</a></li>
+                </ul>
+            </nav>
         </div>
+    </header>
+    <!--<section id="features">
+        <h1>Features</h1>
+        <ul>
+            <li><strong>Title</strong> Subtitle</li>
+        </ul>
+    </section>-->
+
+    <section id="intro">
+        <h1>Intro</h1>
+
+        <p>Knowing when the userbase access the app might save you from tough situations.
+        <br /> - What time is the best to publish the new version?
+        <br /> - When is the best time to send a newsletter to your users? </p>
+        <p>This jQuery plugin is inspired from GitHub punchcard for project's commits.<br /> It is based on <a href="https://github.com/Swingline0">Eran Schoellhorn's</a> work <a href="https://github.com/grsmv/angular-punch-card">angular-punch-card</a>.</p>
+    </section>
 
 
+    <section id="examples">
+        <h1>Examples</h1>
 
-        <span class="banner-fix"></span>
+        <p>Basic initialization.</p>
 
+        <div id="punchcardExample"></div>
+    </section>
 
-        <section id="main_content">
-            <h2 id="welcome-to-github-pages">Welcome to GitHub Pages</h2>
+    <section id="usage">
+        <h1>Installation</h1>
 
-            <p>You can use the <a href="https://github.com/melenaos/jquery-punchcard/edit/master/README.md">editor on GitHub</a> to maintain and preview the content for your website in Markdown files.</p>
+        <p>Include the script and stylesheet in the page:</p>
+        <pre><code class="language-markup">&lt;link rel="stylesheet" href="<a href="../dist/punchcard.min.css" download>punchcard.min.css"</a> />
+&lt;script src="<a href="../dist/punchcard.min.js" download>punchcard.min.js</a>" async>&lt;/script></code></pre>
 
-            <p>Whenever you commit to this repository, GitHub Pages will run <a href="https://jekyllrb.com/">Jekyll</a> to rebuild the pages in your site, from the content in your Markdown files.</p>
+        <p>This plugin is also registered under http://bower.io/ to simplify integration. Try:</p>
+        <pre><code class="language-markup">npm install -g bower
+bower install jquery-punchcard</code></pre>
 
-            <h3 id="markdown">Markdown</h3>
-
-            <p>Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for</p>
-
-            <div class="language-markdown highlighter-rouge">
-                <pre class="highlight"><code>Syntax highlighted code block
-
-<span class="gh"># Header 1</span>
-<span class="gu">## Header 2</span>
-<span class="gu">### Header 3</span>
-<span class="p">
--</span> Bulleted
-<span class="p">-</span> List
-<span class="p">
-1.</span> Numbered
-<span class="p">2.</span> List
-
-<span class="gs">**Bold**</span> and _Italic_ and <span class="sb">`Code`</span> text
-
-<span class="p">[</span><span class="nv">Link</span><span class="p">](</span><span class="sx">url</span><span class="p">)</span> and !<span class="p">[</span><span class="nv">Image</span><span class="p">](</span><span class="sx">src</span><span class="p">)</span>
-</code></pre>
-            </div>
-
-            <p>For more details see <a href="https://guides.github.com/features/mastering-markdown/">GitHub Flavored Markdown</a>.</p>
-
-            <h3 id="jekyll-themes">Jekyll Themes</h3>
-
-            <p>Your Pages site will use the layout and styles from the Jekyll theme you have selected in your <a href="https://github.com/melenaos/jquery-punchcard/settings">repository settings</a>. The name of this theme is saved in the Jekyll <code class="highlighter-rouge">_config.yml</code> configuration file.</p>
-
-            <h3 id="support-or-contact">Support or Contact</h3>
-
-            <p>Having trouble with Pages? Check out our <a href="https://help.github.com/categories/github-pages-basics/">documentation</a> or <a href="https://github.com/contact">contact support</a> and we’ll help you sort it out.</p>
-
-        </section>
-
-        <footer>
-            <span class="ribbon-outer">
-                <span class="ribbon-inner">
-
-                    <p>this project by <a href="https://github.com/melenaos">melenaos</a> can be found on <a href="https://github.com/melenaos/jquery-punchcard">GitHub</a></p>
+        <h1>Usage</h1>
+        <p>Setting up a punchcard is fairly easy. The following snippet creates one:</p>
+        <pre><code class="language-markup">&lt;div id="punchcardExample">&lt;/div>
+&lt;script>
+    $(document).ready(function () {
+        $('#punchcardExample').punchcard({
+            data: [
+                [3, 0, 0, 1, 0, 0, 5, 5, 1, 2, 5, 0],
+                [0, 0, 0, 0, 40, 35, 40, 0, 0, 1, 2, 1, 5],
+                [0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0, 60],
+                [3, 10],
+                [0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 10, 0, 0, 10, 0, 10],
+                [],
+                [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+            ]
+        });
+    });
+&lt;/script></code></pre>
+    </section>
 
 
-                </span>
-                <span class="left-tail"></span>
-                <span class="right-tail"></span>
-            </span>
-        </footer>
+    <footer>
+        Made  by <a href="http://menelabs.com">Menelaos Vergis</a>
+        
+        <!--&bull; <a href="http://menelabs.com/blog/punchcard">About</a>-->
+        &bull; <a href="https://leaverou.github.io/stretchy/">Theme inspired by Lea's Stretchy</a>
 
-    </div>
+        <a href="https://github.com/melenaos/jquery-punchcard" class="github-ribbon">Fork me on GitHub</a>
 
+        <div class="social-media">
+            <a href="https://twitter.com/share" class="twitter-share-button" data-via="menelabs">Tweet</a>
+            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+            <iframe src="https://ghbtns.com/github-btn.html?user=melenaos&amp;repo=jquery-punchcard&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="97" height="20"></iframe>
+            <iframe style='vertical-align: middle' src="https://ghbtns.com/github-btn.html?user=melenaos&amp;repo=jquery-punchcard&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+        </div>
+    </footer>
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../dist/punchcard.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#punchcardExample').punchcard({
+                data: [
+                    [3, 0, 0, 1, 0, 0, 5, 5, 1, 2, 5, 0],
+                    [0, 0, 0, 0, 40, 35, 40, 0, 0, 1, 2, 1, 5],
+                    [0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0, 60],
+                    [3, 10],
+                    [0, 0, 0, 0, 8, 0, 0, 8, 0, 0, 10, 0, 0, 10, 0, 10],
+                    [],
+                    [0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+                ]
+            });
+        });
+    </script>
 </body>
 </html>

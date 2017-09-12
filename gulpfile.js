@@ -36,7 +36,7 @@ gulp.task("min:js", function () {
 });
 gulp.task("copy", function () {
     return gulp.src(path.src)
-        .pipe(gulp.dest(path.dist));
+        .pipe(multiDest([path.dist, path.docs]));
 
 });
 

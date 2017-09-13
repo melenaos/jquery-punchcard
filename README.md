@@ -60,7 +60,7 @@ http://melenaos.github.io/jquery-punchcard/#examples
 
 ## License
 
-Awesomplete is released under the MIT License. See [LICENSE][1] file for
+Punchcard is released under the MIT License. See [LICENSE][1] file for
 details.
 
 

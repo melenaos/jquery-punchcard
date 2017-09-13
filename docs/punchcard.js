@@ -180,7 +180,7 @@
         if (timezone == 'utc') {
             offset = 0;
         } else if (timezone == 'local') {
-            offset = Math.floor(TIME_OFFSET_ANCHOR.utcOffset() / 60);
+            offset = Math.floor(TIME_OFFSET_ANCHOR.local().utcOffset() / 60);
         } else {
             offset = Math.floor(TIME_OFFSET_ANCHOR.tz(timezone).utcOffset() / 60);
         }

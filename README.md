@@ -1,9 +1,19 @@
-## Punchcard
+<h1 align="center">
+  <br>
+  <a href="http://melenaos.github.io/jquery-punchcard/"><img src="https://raw.githubusercontent.com/melenaos/jquery-punchcard/master/docs/media/logo.png" alt="jquery-punchcard" width="200"></a>
+  <br>
+  Punchcard
+  <br>
+</h1>
+
+<h4 align="center">A jquery plugin for creating GitHub Punchcard like graphs.</h4>
+
+
 [![jquery-punchcard](https://img.shields.io/bower/v/jquery-punchcard.svg?style=flat-square)](https://github.com/melenaos/jquery-punchcard/releases)
 
-*A jquery plugin for creating GitHub Punchcard like graphs*
+![screenshot](https://raw.githubusercontent.com/melenaos/jquery-punchcard/master/docs/media/punchcard.gif)
 
-http://melenaos.github.io/jquery-punchcard/
+
 
 
 ## Installation

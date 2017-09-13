@@ -38,9 +38,11 @@
     <section id="intro">
         <h1>Intro</h1>
 
-        <p>Knowing when the userbase access the app might save you from tough situations.
-        <br /> - What time is the best to publish the new version?
-        <br /> - When is the best time to send a newsletter to your users? </p>
+        <p>
+            Knowing when the userbase access the app might save you from tough situations.
+            <br /> - What time is the best to publish the new version?
+            <br /> - When is the best time to send a newsletter to your users?
+        </p>
         <p>This jQuery plugin is inspired from GitHub punchcard for project's commits.<br /> It is based on <a href="https://github.com/Swingline0">Eran Schoellhorn's</a> work <a href="https://github.com/grsmv/angular-punch-card">angular-punch-card</a>.</p>
     </section>
 
@@ -51,6 +53,12 @@
         <p>Basic initialization.</p>
 
         <div id="punchcardExample"></div>
+        <div>Timezone</div>
+        <select id="selectTimezone">
+            <option value="0" selected>Local</option>
+            <option value="1">UTC</option>
+            <option value="2">America/Los_Angeles</option>
+        </select>
     </section>
 
     <section id="usage">
@@ -97,7 +105,7 @@ bower install jquery-punchcard</code></pre>
 
     <footer>
         Made  by <a href="http://menelabs.com">Menelaos Vergis</a>
-        
+
         <!--&bull; <a href="http://menelabs.com/blog/punchcard">About</a>-->
         &bull; <a href="https://leaverou.github.io/stretchy/">Theme based on Lea's Stretchy</a>
 
@@ -117,7 +125,7 @@ bower install jquery-punchcard</code></pre>
     <script src="./punchcard.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
-            $('#punchcardExample').punchcard({
+            var punchcard = $('#punchcardExample').punchcard({
                 data: [
                     [3, 0, 0, 1, 0, 0, 5, 5, 1, 2, 5, 0],
                     [0, 0, 0, 0, 40, 35, 40, 0, 0, 1, 2, 1, 5],
@@ -130,9 +138,14 @@ bower install jquery-punchcard</code></pre>
                 singular: 'login',
                 plural: 'logins',
                 timezones: ['local', 'utc', 'America/Los_Angeles'],
-                timezoneIndex:0
+                timezoneIndex: 0
             });
+
+            $('#selectTimezone').on('change', function () {
+                $('#punchcardExample').punchcard('changeTimezone', $('#selectTimezone').val());
+            })
         });
+
     </script>
 </body>
 </html>

@@ -9,7 +9,7 @@
     "jquery": "^3.2.1",
     "moment-timezone": "^0.5.13"
   },
-  "ignore": ["src"],
+  "ignore": ["src","docs"],
   "main": [
     "dist/punchcard.min.css",
     "dist/punchcard.min.js"

@@ -19,7 +19,9 @@
             data: undefined,
             ajax: undefined,
             timezones: [],
-            timezoneIndex: 0
+            timezoneIndex: 0,
+            nightModeFrom: undefined,
+            nightModeTo: undefined,
         };
 
     // Constructor
@@ -48,6 +50,17 @@
             this.calcSize();
             this.addDays();
         },
+        refresh: function () {
+            $(this.element).empty();
+
+            this.applyTimezone();
+            this.calcSize();
+            this.addDays();
+        },
+        changeTimezone: function (timezoneIndex) {
+            this.settings.timezoneIndex = timezoneIndex;
+            this.refresh();
+        },
         applyTimezone: function () {
             var offset = getTimezoneOffset(this.settings.timezones, this.settings.timezoneIndex);
 
@@ -60,6 +73,7 @@
                     var n = this.settings.data[iDay][iHour] | 0;
 
                     var weekIndex = hourLength * iDay + iHour + offset;
+                    weekIndex = weekIndex > 0 ? weekIndex : weekHours + weekIndex; 
                     var day = Math.floor(weekIndex / hourLength) % daysLength;
                     var hour = weekIndex % hourLength;
 
@@ -68,6 +82,7 @@
             }
         },
         calcSize: function () {
+            this.size = [];
             for (var iDay in this.settings.days) {
                 var maxData = 0;
                 for (var iHour in this.settings.hours) {
@@ -90,6 +105,7 @@
             }
 
         },
+
         addDays: function () {
             var tmp = '';
             //render days
@@ -134,10 +150,18 @@
     // A really lightweight plugin wrapper around the constructor,
     // preventing against multiple instantiations
     $.fn[pluginName] = function (options) {
+        // slice arguments to leave only arguments after function name
+        var args = Array.prototype.slice.call(arguments, 1);
         return this.each(function () {
-            if (!$.data(this, "plugin_" + pluginName)) {
-                $.data(this, "plugin_" +
-                    pluginName, new Plugin(this, options));
+            var item = $(this), instance = item.data("plugin_" + pluginName);
+            if (!instance) {
+                // create plugin instance and save it in data
+                item.data("plugin_" + pluginName, new Plugin(this, options));
+            } else {
+                // if instance already created call method
+                if (typeof options === 'string') {
+                    instance[options].apply(instance, args);
+                }
             }
         });
     };

@@ -33,6 +33,7 @@
         this._name = pluginName;
         this.data = createArray(this.settings.days.length, this.settings.hours.length);
         this.size = [];
+        this.initialWidth = 0;
         this.init();
     }
 
@@ -49,6 +50,21 @@
             this.applyTimezone();
             this.calcSize();
             this.addDays();
+
+            this.initialWidth = $(this.element).width();
+            this.registerResizeListener();
+            this.setScale();
+        },
+        registerResizeListener: function() {
+            var self = this;
+            $(window).resize(function() {
+                self.setScale();
+            });
+        },
+        setScale: function() {
+            var parentWidth = $(this.element).parent().width();
+            var ratio = parentWidth / this.initialWidth;
+            $(this.element).css('transform', 'scale(' + ratio + ')');
         },
         refresh: function () {
             $(this.element).empty();
@@ -99,7 +115,7 @@
 
                     var pers = n / maxData;
 
-                    dayList.push(Math.ceil(pers * MAX_SIZE))
+                    dayList.push(Math.ceil(pers * MAX_SIZE));
                 }
                 this.size.push(dayList);
             }
@@ -116,7 +132,7 @@
                     + '     </div >';
                 for (var iHour in this.settings.hours) {
                     var n = this.data[iDay][iHour] | 0;
-                    var size = this.size[iDay][iHour] | 0
+                    var size = this.size[iDay][iHour] | 0;
                     tmp += '<div class="punch-card-hour">'
                         + '     <div class="punch-card-hour-data size-' + size + '"></div>'
                         + '     <div class="punch-card-hour-tooltip">'
@@ -133,7 +149,7 @@
             for (var iHour in this.settings.hours) {
                 tmp += '    <div class="punch-card-hour-name-label">'
                     + this.settings.hours[iHour]
-                    + '    </div>'
+                    + '    </div>';
             }
             tmp += '</div>';
 
@@ -185,7 +201,7 @@
             offset = Math.floor(TIME_OFFSET_ANCHOR.tz(timezone).utcOffset() / 60);
         }
         return offset;
-    }
+    };
 
     var createArray = function (length) {
         var arr = new Array(length || 0),
@@ -197,6 +213,6 @@
         }
 
         return arr;
-    }
+    };
 
 })(jQuery, window, document);

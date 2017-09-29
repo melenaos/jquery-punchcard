@@ -3,6 +3,7 @@
     font-size: 14px;
     padding-top: 0.7em;
     overflow: hidden;
+    transform-origin: left;
 }
 
     .punchcard * {

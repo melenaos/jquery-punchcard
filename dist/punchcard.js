@@ -21,7 +21,7 @@
             timezones: [],
             timezoneIndex: 0,
             nightModeFrom: undefined,
-            nightModeTo: undefined,
+            nightModeTo: undefined
         };
 
     // Constructor
@@ -64,6 +64,13 @@
         setScale: function() {
             var parentWidth = $(this.element).parent().width();
             var ratio = parentWidth / this.initialWidth;
+
+            console.log(parentWidth);
+            console.log(this.initialWidth);
+
+            //Floating point precision fix
+            ratio -= 0.01;
+
             $(this.element).css('transform', 'scale(' + ratio + ')');
         },
         refresh: function () {

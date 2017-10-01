@@ -17,7 +17,6 @@
             singular: undefined,
             plural: undefined,
             data: undefined,
-            ajax: undefined,
             timezones: [],
             timezoneIndex: 0,
             nightModeFrom: undefined,
@@ -32,6 +31,8 @@
         this._defaults = defaults;
         this._name = pluginName;
         this.data = createArray(this.settings.days.length, this.settings.hours.length);
+        // Actual settings.data (after fetched) is here.
+        this.settingsData = null;
         this.size = [];
         this.initialWidth = 0;
         this.init();
@@ -46,7 +47,10 @@
             }
 
             $(this.element).addClass('punchcard');
-
+            this.refresh();
+        },
+        render: function() {
+            $(this.element).empty();
             this.applyTimezone();
             this.calcSize();
             this.addDays();
@@ -74,15 +78,37 @@
             $(this.element).css('transform', 'scale(' + ratio + ')');
         },
         refresh: function () {
-            $(this.element).empty();
+            var self = this;
+            var settingsData = this.settings.data;
 
-            this.applyTimezone();
-            this.calcSize();
-            this.addDays();
+            if (isFunction(settingsData)) {
+                settingsData = settingsData(this.settings, this);
+            }
+            if (isPromise(settingsData)) {
+                this.settingsData = null;
+                this.render();
+
+                $(this.element).addClass('punchcard-loading');
+                settingsData.then(function(settingsData){
+                    if (!settingsData) {
+                        console.log("punchcard plugin refresh: Promise Data must resolve to data array")
+                    }
+                    self.settingsData = settingsData;
+                    self.render();
+                    $(self.element).removeClass('punchcard-loading punchcard-error');
+                }, function(ex) {
+                    console.log('punchcard plugin refresh: error', ex);
+                    $(self.element).removeClass('punchcard-loading');
+                    $(self.element).addClass('punchcard-error');
+                });
+            } else {
+                this.settingsData = settingsData;
+                this.render();
+            }
         },
         changeTimezone: function (timezoneIndex) {
             this.settings.timezoneIndex = timezoneIndex;
-            this.refresh();
+            this.render();
         },
         applyTimezone: function () {
             var offset = getTimezoneOffset(this.settings.timezones, this.settings.timezoneIndex);
@@ -93,10 +119,14 @@
 
             for (var iDay = 0; iDay < daysLength; iDay++) {
                 for (var iHour = 0; iHour < hourLength; iHour++) {
-                    var n = this.settings.data[iDay][iHour] | 0;
+                    var n = 0;
+                    // Allow settingsData to be null during loading.
+                    if (this.settingsData && this.settingsData[iDay] && this.settingsData[iDay][iHour]) {
+                        n = this.settingsData[iDay][iHour] | 0
+                    }
 
                     var weekIndex = hourLength * iDay + iHour + offset;
-                    weekIndex = weekIndex > 0 ? weekIndex : weekHours + weekIndex; 
+                    weekIndex = weekIndex > 0 ? weekIndex : weekHours + weekIndex;
                     var day = Math.floor(weekIndex / hourLength) % daysLength;
                     var hour = weekIndex % hourLength;
 
@@ -222,4 +252,14 @@
         return arr;
     };
 
+
+    var isFunction = function (data) {
+        return (typeof data) == 'function' && !data.then
+    }
+
+    var isPromise = function (data) {
+        return (typeof data.then) == 'function'
+    }
+
 })(jQuery, window, document);
+

@@ -35,6 +35,8 @@
         this.settingsData = null;
         this.size = [];
         this.initialWidth = 0;
+        this.responsive = options.responsive;
+        this.minWidth = options.minWidth;
         this.init();
     }
 
@@ -56,8 +58,11 @@
             this.addDays();
 
             this.initialWidth = $(this.element).width();
-            this.registerResizeListener();
-            this.setScale();
+
+            if(this.responsive) {
+                this.registerResizeListener();
+                this.setScale();
+            }
         },
         registerResizeListener: function() {
             var self = this;
@@ -69,13 +74,11 @@
             var parentWidth = $(this.element).parent().width();
             var ratio = parentWidth / this.initialWidth;
 
-            console.log(parentWidth);
-            console.log(this.initialWidth);
-
             //Floating point precision fix
             ratio -= 0.01;
 
-            $(this.element).css('transform', 'scale(' + ratio + ')');
+            if (typeof this.minWidth === 'undefined' || this.initialWidth * ratio >= this.minWidth)
+                $(this.element).css('transform', 'scale(' + ratio + ')');
         },
         refresh: function () {
             var self = this;
@@ -91,7 +94,7 @@
                 $(this.element).addClass('punchcard-loading');
                 settingsData.then(function(settingsData){
                     if (!settingsData) {
-                        console.log("punchcard plugin refresh: Promise Data must resolve to data array")
+                        console.log("punchcard plugin refresh: Promise Data must resolve to data array");
                     }
                     self.settingsData = settingsData;
                     self.render();

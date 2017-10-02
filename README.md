@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://melenaos.github.io/jquery-punchcard/"><img src="https://github.com/melenaos/jquery-punchcard/raw/master/docs/media/logo1.png" alt="jquery-punchcard" width="200"></a>
+  <a href="http://melenaos.github.io/jquery-punchcard/"><img src="https://github.com/melenaos/jquery-punchcard/raw/master/docs/media/logo.png" alt="jquery-punchcard" width="200"></a>
   <br>
   Punchcard
   <br>

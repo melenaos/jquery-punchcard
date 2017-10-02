@@ -2,8 +2,6 @@
   <br>
   <a href="http://melenaos.github.io/jquery-punchcard/"><img src="https://github.com/melenaos/jquery-punchcard/raw/master/docs/media/logo.png" alt="jquery-punchcard" height="200"></a>
   <br>
-  Punchcard
-  <br>
 </h1>
 
 <h4 align="center">A jquery plugin for creating GitHub Punchcard like graphs.</h4>

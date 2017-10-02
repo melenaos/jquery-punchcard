@@ -134,11 +134,10 @@
             singular: undefined,
             plural: undefined,
             data: undefined,
-            ajax: undefined,
             timezones: [],
             timezoneIndex: 0,
             nightModeFrom: undefined,
-            nightModeTo: undefined,
+            nightModeTo: undefined
         };
 
     // Constructor
@@ -148,6 +147,7 @@
         this.settings = $.extend({}, defaults, options);
         this._defaults = defaults;
         this._name = pluginName;
+
         this.init();
     }
 
@@ -173,13 +173,15 @@
         refresh: function () {
             $(this.element).empty();
             this.render()
+
         },
         changeTimezone: function (timezoneIndex) {
             this.settings.timezoneIndex = timezoneIndex;
-            this.refresh();
+            this.render();
         },
         appendHtml: function (html) {
             $(this.element).html(html);
+
         }
     });
 
@@ -207,4 +209,10 @@
     };
 
 
+
+    var isPromise = function (data) {
+        return (typeof data.then) == 'function'
+    }
+
 })(jQuery, window, document);
+

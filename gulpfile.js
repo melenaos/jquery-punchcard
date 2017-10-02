@@ -6,7 +6,8 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     stripDebug = require("gulp-strip-debug"),
     rename = require("gulp-rename"),
-    multiDest = require("gulp-multi-dest");
+    multiDest = require("gulp-multi-dest"),
+    jasmineBrowser = require("gulp-jasmine-browser");
 
 var path = {
     dist: "./dist/",
@@ -40,6 +41,12 @@ gulp.task("copy", function () {
 
 });
 
+/*jasmine server to run specs*/
+gulp.task('jasmine'), function() {
+  return gulp.src(['src/ .js', 'spec/**/*_spec.js'])
+  .pipe(jasmineBrowser.specRunner())
+
+}
 
 
 /* build */

@@ -11,5 +11,8 @@
     "gulp-strip-debug": "1.1.0",
     "gulp-multi-dest": "0.0.4",
     "rimraf": "2.6.1"
+  },
+  "dependencies": {
+    "gulp-jasmine-browser": "^1.9.1"
   }
 }

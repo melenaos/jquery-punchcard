@@ -41,13 +41,5 @@ gulp.task("copy", function () {
 
 });
 
-/*jasmine server to run specs*/
-gulp.task('jasmine'), function() {
-  return gulp.src(['src/ .js', 'spec/**/*_spec.js'])
-  .pipe(jasmineBrowser.specRunner())
-
-}
-
-
 /* build */
 gulp.task("build", ["clean", "min:css", "min:js", "copy"]);

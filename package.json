@@ -26,14 +26,4 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "test": "jasmine"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bl2i4n/jquery-punchcard.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bl2i4n/jquery-punchcard/issues"
-  },
-  "homepage": "https://github.com/bl2i4n/jquery-punchcard#readme"
-}
+  

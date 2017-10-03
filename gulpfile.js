@@ -6,8 +6,6 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     stripDebug = require("gulp-strip-debug"),
     rename = require("gulp-rename"),
-    multiDest = require("gulp-multi-dest"),
-    jasmineBrowser = require("gulp-jasmine-browser");
 
 var path = {
     dist: "./dist/",

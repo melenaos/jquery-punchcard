@@ -6,7 +6,6 @@ var gulp = require("gulp"),
     uglify = require("gulp-uglify"),
     stripDebug = require("gulp-strip-debug"),
     rename = require("gulp-rename"),
-    multiDest = require("gulp-multi-dest");
 
 var path = {
     dist: "./dist/",
@@ -39,8 +38,6 @@ gulp.task("copy", function () {
         .pipe(multiDest([path.dist, path.docs]));
 
 });
-
-
 
 /* build */
 gulp.task("build", ["clean", "min:css", "min:js", "copy"]);

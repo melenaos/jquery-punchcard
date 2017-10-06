@@ -6,10 +6,24 @@
     "gulp-concat": "2.6.1",
     "gulp-concat-css": "2.3.0",
     "gulp-cssmin": "0.1.7",
-    "gulp-uglify": "2.0.1",
+    "gulp-multi-dest": "0.0.4",
     "gulp-rename": "1.2.2",
     "gulp-strip-debug": "1.1.0",
-    "gulp-multi-dest": "0.0.4",
+    "gulp-uglify": "2.0.1",
+    "jasmine": "^2.8.0",
     "rimraf": "2.6.1"
+  },
+  "dependencies": {
+    "gulp-jasmine-browser": "^1.9.1"
+  },
+  "name": "jquery-punchcard",
+  "description": "<h1 align=\"center\">   <br>   <a href=\"http://melenaos.github.io/jquery-punchcard/\"><img src=\"https://github.com/melenaos/jquery-punchcard/raw/master/docs/media/logo.png\" alt=\"jquery-punchcard\" width=\"200\"></a>   <br>   Punchcard   <br> </h1>",
+  "main": "gulpfile.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jasmine"
   }
 }
